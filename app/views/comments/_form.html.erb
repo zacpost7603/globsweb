@@ -1,0 +1,7 @@
+<%=bootstrap_form_with(model: [@glob,@comment]) do |f|%>
+    <%= f.alert_message "Comment Could Not Be Created ERRORS", error_summary: false%>
+    <%= f.text_area :body %>
+    <%= f.text_field :contributor%>
+    <%= f.text_field :contact %>
+    <%= f.primary @comment.persisted? ? 'Edit Comment' : 'Generate Comment' %>
+<% end %>

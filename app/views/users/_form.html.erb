@@ -1,0 +1,11 @@
+<%=bootstrap_form_with(model: @user) do |f|%>
+    <%= f.alert_message "New User Could Not Be Created, Errors", error_summary: false%>
+    <%= f.text_field :name %>
+    <%= f.email_field :email %>
+    <% if @user.has_password? %>
+        <%= f.password_field :password %>
+        <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <%end%>
+    <%= f.primary @user.persisted? ? 'Confirm Changes?' : 'Sign Up' %>
+    
+<% end %>

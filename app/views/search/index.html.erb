@@ -1,0 +1,21 @@
+<h1 class="text-center"><%= pluralize(@globs.count, "Result")%></h1>
+<div class= "container">
+    <table class="table table-striped" style="background-color: #f5d0c1;">
+        <thead>
+            <tr>
+                <th><%=sort_link(@query, :title, "Title", default_order: :asc)%></th>
+                <th><%=sort_link(@query, :summary, "Summary")%></th>
+                <th><%=sort_link(@query, :author, "Author")%></th>
+            </tr
+        </thead>
+        <tbody>
+            <% @globs.each do |glob| %>
+            <tr>
+                <td><%= link_to glob.title, glob, class: "my-link-to"%></td>
+                <td><%= glob.summary.truncate_words(25) %></td>
+                <td><%= glob.author %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

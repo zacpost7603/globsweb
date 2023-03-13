@@ -1,0 +1,7 @@
+<%= title "Comment for "+@glob.title%>
+
+<%= render @comment %>
+
+<%= link_to "Edit Comment", edit_glob_comment_path(@glob,@comment)%> | <%= link_to "Comments", glob_comments_path(@glob)%>
+</br>
+<%= button_to 'Delete Comment', [@glob,@comment], method: :delete, class: 'btn btn-danger', form: {data: {turbo_confirm: "Are you sure?"} } %>

@@ -1,0 +1,5 @@
+<%= title "Edit Profile" %>
+
+<%= render 'form' %> 
+
+<%= button_to 'Delete Account', @user, method: :delete, class: 'btn btn-danger', form: {data: {turbo_confirm: "Are you sure?"} } %>

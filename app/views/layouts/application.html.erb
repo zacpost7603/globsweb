@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <title>Ludus <%= " | "+yield(:title) unless yield(:title).blank? %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="container-fluid p-0 h-100">
+    
+    <main class="h-100 w-100 row m-0">
+        <!-- trial side bar nav--> 
+      <div class="col-md-3" style="background-color: #ab433c;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">Ludus</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <%= nav_link 'About', about_path%>
+        <% if current_user %>
+        <%= nav_link 'Globs', globs_path%>
+        <% end %>
+        <% if current_user %>
+          <%= nav_link 'Profile', user_path(current_user)%>
+          <%= nav_link 'Logout', logout_path%>
+        <% else%>
+          <%= nav_link 'Login', login_path%>
+          <%= nav_link 'Signup', signup_path%>
+        <% end %>
+      </ul>
+      <hr>
+      <div>
+        <% if current_user %>
+        <%= render 'search/form' %>
+        <%end%>
+      </div>
+    </div>
+     <!--End side bar nav -->
+      
+      <!--Begin Flash Messages-->
+      <div class="col">
+        <% if @show_title%>
+        <div id="title" class="row">
+          <div class="col">
+            <h1><%=yield(:title)%></h1>
+          </div>
+        </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <div id="flash-messages" class="position-absolute w-50 h-100 p-3" style="margin-left: 50%">
+        <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger'%> alert-dismissable fadeshow d-flex justify-content-between col-sm-auto float-right pe-all" role="alert">
+          <p><strong><%= msg %></strong></p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+        <% end %>
+      </div>
+      
+    </main>
+    <!--<footer class="footer py-3 text-center" style="background-color: #ab433c;">-->
+    <!--    <div class="container">-->
+    <!--      <span class="text-white">@ZacPost2022</span></br>-->
+    <!--      <span class="text-white">zacpost7603@go.byuh.edu</span>-->
+    <!--    </div>-->
+    <!--</footer>-->
+  </body>
+</html>

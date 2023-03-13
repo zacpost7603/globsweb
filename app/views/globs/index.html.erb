@@ -1,0 +1,8 @@
+<%= title "Globs" %>
+<%@globs.each do |glob|%>
+    <%= render glob %>
+<% end %>
+
+<P>
+    <%= link_to "New Glob", new_glob_path, class: "btn btn-primary"%>
+</P>

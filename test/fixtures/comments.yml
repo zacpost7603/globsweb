@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  contributor: MyString
+  contact: MyString
+  glob_id: 1
+
+two:
+  body: MyText
+  contributor: MyString
+  contact: MyString
+  glob_id: 1

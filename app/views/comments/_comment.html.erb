@@ -1,0 +1,5 @@
+    <div id="<%= dom_id(comment)%>" class="comment border border-dark rounded">
+        <p><strong>Comment: </strong><%= comment.body%></p>
+        <p><strong>By: </strong><%= link_to_unless_current comment.contributor, glob_comment_path(@glob,comment)%></p>
+        <p><strong>Contact Information: </strong><%= comment.contact%></p>
+    </div>

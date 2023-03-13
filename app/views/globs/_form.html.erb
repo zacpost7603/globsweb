@@ -1,0 +1,7 @@
+<%=bootstrap_form_with(model: @glob) do |f|%>
+    <%= f.alert_message "Glob Could Not Be Created ERRORS", error_summary: true%>
+    <%= f.text_field :title %>
+    <%= f.text_field :summary %>
+    <%= f.text_field :author %>
+    <%= f.primary @glob.persisted? ? 'Edit Glob' : 'Create Glob' %>
+<% end %>

@@ -1,0 +1,16 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+.my-nav-link{
+    color: white;
+}.my-nav-link:hover{
+    color: grey;
+}
+.my-link-to{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+.my-link-to:hover{
+    color: grey;
+}

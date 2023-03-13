@@ -1,0 +1,8 @@
+<%= title "View Glob" %>
+
+<%= render @glob %>
+<% if @glob.user == current_user%>
+<%= link_to "Edit Glob", edit_glob_path(@glob)%> 
+<%= button_to 'Delete Glob', @glob, method: :delete, class: 'btn btn-danger', form: {data: {turbo_confirm: "Are you sure?"} } %>
+<%end%>
+| <%= link_to "All Globs", globs_path%> | <%= link_to "Comments", glob_comments_path(@glob)%>

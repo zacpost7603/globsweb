@@ -1,0 +1,7 @@
+<%= title "Comments for "+@glob.title%>
+
+<%= render @glob.comments%>
+
+<%= link_to "New Comment", new_glob_comment_path(@glob), class: "btn btn-primary"%>
+</br>
+<%= link_to "Back to Glob ", glob_path(@glob)%>
